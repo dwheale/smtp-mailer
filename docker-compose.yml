@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  server:
+    container_name: smtp-mailer
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: yarn start:production
+    environment:
+      SMTP_PORT: 25
+    restart: unless-stopped
+
